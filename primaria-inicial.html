@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.E. Ricardo Palma - Primaria e Inicial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #1a365d; --secondary: #d69e2e; --light: #f7fafc; --dark: #2d3748; --success: #38a169; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: var(--light); color: var(--dark); }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--primary); padding: 1rem 5%; color: white;
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--secondary); }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--secondary); }
+
+        .container { padding: 4rem 10%; }
+        h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 2rem; text-align: center; }
+
+        .info-box {
+            background: white; padding: 2.5rem; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 3rem;
+            display: flex; gap: 40px; align-items: center;
+        }
+        .info-box img { width: 40%; border-radius: 15px; height: 250px; object-fit: cover; }
+        .info-content h3 { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
+
+        /* JUEGO INTERACTIVO DE JS: ADIVINA EL NÚMERO / TRIVIA */
+        .game-zone {
+            background: linear-gradient(135deg, #ebf8ff, #fff);
+            padding: 3rem; border-radius: 20px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 3rem;
+        }
+        .game-zone input {
+            padding: 10px 20px; font-size: 1rem; border-radius: 20px;
+            border: 2px solid var(--primary); outline: none; margin-right: 10px; width: 200px;
+        }
+        .game-btn {
+            background: var(--secondary); color: var(--primary); border: none;
+            padding: 10px 20px; font-weight: 700; border-radius: 20px; cursor: pointer; transition: 0.3s;
+        }
+        .game-btn:hover { background: #b7791f; color: white; }
+        #game-message { margin-top: 15px; font-weight: 600; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">I.E. RICARDO PALMA</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="secundaria.html">Secundaria</a></li>
+            <li><a href="primaria-inicial.html" class="active">Primaria e Inicial</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Nivel Primaria e Inicial</h2>
+
+        <div class="info-box">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="Primaria">
+            <div class="info-content">
+                <h3>Nivel Primaria</h3>
+                <p>Estimulamos el pensamiento lógico, la comprensión lectora y las habilidades sociales a través de proyectos dinámicos y herramientas multimedia.</p>
+            </div>
+        </div>
+
+        <div class="info-box" style="flex-direction: row-reverse;">
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Inicial">
+            <div class="info-content">
+                <h3>Nivel Inicial (Zona Lúdica)</h3>
+                <p>El aprendizaje temprano se basa en el juego, la psicomotricidad y el desarrollo de la creatividad en ambientes seguros y diseñados para infantes.</p>
+            </div>
+        </div>
+
+        <div class="game-zone">
+            <h3>🎮 ¡Minijuego Interactivo para Pequeños!</h3>
+            <p>Adivina un número del 1 al 10 para ganar una estrella dorada del colegio:</p>
+            <br>
+            <input type="number" id="userGuess" min="1" max="10" placeholder="Escribe un número...">
+            <button class="game-btn" onclick="checkGame()">¡Probar Suerte!</button>
+            <p id="game-message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

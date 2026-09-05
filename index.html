@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.E. Ricardo Palma - Excelencia Educativa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #d69e2e;
+            --accent: #2b6cb0;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --success: #38a169;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        /* ENCABEZADO FLYER DIGITAL */
+        header {
+            background: linear-gradient(135deg, rgba(26,54,93,0.9), rgba(43,108,176,0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem 5%;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .flyer-content {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            padding: 3rem 0;
+        }
+
+        .flyer-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .flyer-content h1 span {
+            color: var(--secondary);
+        }
+
+        .flyer-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 4px 15px rgba(214, 158, 46, 0.4);
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            background-color: #b7791f;
+            color: white;
+        }
+
+        /* SECCIONES DE NIVELES */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+        }
+
+        .level-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 4rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .level-container.reverse {
+            direction: rtl;
+        }
+
+        .level-container.reverse * {
+            direction: ltr;
+        }
+
+        .level-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .level-info p {
+            margin-bottom: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .features-list li {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .features-list li i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        .level-img img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
+            height: 300px;
+        }
+
+        /* SECCIÓN DE JUEGOS / MARKETING INICIAL */
+        .games-section {
+            background: linear-gradient(135deg, #ebf8ff, #fff);
+            text-align: center;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .game-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .game-card i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .game-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            margin-top: 1rem;
+            color: #a0aec0;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .level-container, .level-container.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+            .flyer-content h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="inicio">
+        <nav>
+            <div class="logo">I.E. RICARDO PALMA</div>
+            <ul class="nav-links">
+                <li><a href="#secundaria">Secundaria</a></li>
+                <li><a href="#primaria">Primaria</a></li>
+                <li><a href="#inicial">Inicial & Juegos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="flyer-content">
+            <h1>¡FORMA PARTE DE LA FAMILIA <span>PALMINA</span>!</h1>
+            <p>Educación de calidad con valores, plana docente altamente calificada y moderna infraestructura para asegurar el éxito de tus hijos.</p>
+            <a href="#secundaria" class="cta-btn">Explora Nuestros Niveles <i class="fas fa-arrow-down"></i></a>
+        </div>
+    </header>
+
+    <section id="secundaria">
+        <div class="section-title">
+            <h2>Nivel Secundaria</h2>
+        </div>
+        
+        <div class="level-container">
+            <div class="level-info">
+                <h3>Liderazgo y Preparación Pre-Universitaria</h3>
+                <p>Potenciamos las capacidades analíticas y críticas de los adolescentes con laboratorios de ciencias implementados, simulacros tipo admisión y tutoría especializada.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Plana docente especializada por áreas.</li>
+                    <li><i class="fas fa-check-circle"></i> Talleres de robótica y computación avanzada.</li>
+                    <li><i class="fas fa-check-circle"></i> Infraestructura con losas deportivas y laboratorios.</li>
+                </ul>
+                <a href="#contacto" class="cta-btn" style="padding: 8px 20px; font-size: 0.9rem;">Matrícula Secundaria</a>
+            </div>
+            <div class="level-img">
+                <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80" alt="Infraestructura Secundaria">
+            </div>
+        </div>
+    </section>
+
+    <section id="primaria" style="background-color: #fff;">
+        <div class="section-title">
+            <h2>Nivel Primaria</h2>
+        </div>
+        
+        <div class="level-container reverse">
+            <div class="level-info">
+                <h3>Desarrollo Integral y Creatividad</h3>
+                <p>Brindamos un ambiente cálido y seguro donde los niños desarrollan competencias lectoras, matemáticas y artísticas mediante metodologías activas y participativas.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Inglés intensivo desde los primeros grados.</li>
+                    <li><i class="fas fa-check-circle"></i> Acompañamiento psicológico permanente.</li>
+                    <li><i class="fas fa-check-circle"></i> Aulas interactivas y multimedia.</li>
+                </ul>
+                <a href="#contacto" class="cta-btn" style="padding: 8px 20px; font-size: 0.9rem;">Matrícula Primaria</a>
+            </div>
+            <div class="level-img">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Infraestructura Primaria">
+            </div>
+        </div>
+    </section>
+
+    <section id="inicial" class="games-section">
+        <div class="section-title">
+            <h2>Nivel Inicial & Área Lúdica</h2>
+        </div>
+        
+        <div class="level-container" style="background: transparent; box-shadow: none; margin-bottom: 2rem;">
+            <div class="level-info">
+                <h3>¡El mejor inicio para tus pequeños!</h3>
+                <p>Estimulación temprana, aprestamiento y aprendizaje a través del juego. Contamos con juegos seguros, áreas verdes exclusivas y docentes con vocación y amor por la infancia.</p>
+            </div>
+            <div class="level-img">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Infraestructura Inicial">
+            </div>
+        </div>
+
+        <h3 style="color: var(--primary); margin-top: 2rem;">Experiencias de Aprendizaje Lúdico</h3>
+        <div class="games-grid">
+            <div class="game-card">
+                <i class="fas fa-puzzle-piece"></i>
+                <h4>Psicomotricidad</h4>
+                <p>Circuitos y juegos diseñados para desarrollar el equilibrio y coordinación motora.</p>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-shapes"></i>
+                <h4>Matemática Divertida</h4>
+                <p>Bloques lógicos y juegos didácticos para un razonamiento temprano eficaz.</p>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-paint-brush"></i>
+                <h4>Talleres de Arte</h4>
+                <p>Expresión plástica, música y teatro para potenciar su imaginación sin límites.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="logo" style="color: white; margin-bottom: 1rem;">I.E. RICARDO PALMA</div>
+        <p>¡Construyendo el futuro de líderes exitosos!</p>
+        <p><i class="fas fa-map-marker-alt"></i> Av. Educativa s/n - Perú | <i class="fas fa-phone"></i> (01) 555-1234</p>
+        <p style="font-size: 0.8rem; margin-top: 2rem;">&copy; 2026 I.E. Ricardo Palma. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

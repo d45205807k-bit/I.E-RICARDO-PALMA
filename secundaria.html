@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.E. Ricardo Palma - Secundaria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #1a365d; --secondary: #d69e2e; --light: #f7fafc; --dark: #2d3748; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: var(--light); color: var(--dark); }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--primary); padding: 1rem 5%; color: white;
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--secondary); }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--secondary); }
+
+        .container { padding: 4rem 10%; }
+        h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 2rem; text-align: center; }
+
+        /* GRID DE ASPECTOS E INFRAESTRUCTURA */
+        .grid-cards {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 4rem;
+        }
+        .card {
+            background: white; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 1.5rem; }
+        .card-content h3 { color: var(--primary); margin-bottom: 10px; }
+
+        /* PLANA DOCENTE */
+        .teachers-section { background: #edf2f7; padding: 4rem 10%; text-align: center; }
+        .teacher-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 2rem; }
+        .teacher-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .teacher-card i { font-size: 3rem; color: var(--secondary); margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">I.E. RICARDO PALMA</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="secundaria.html" class="active">Secundaria</a></li>
+            <li><a href="primaria-inicial.html">Primaria e Inicial</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Nivel Secundaria: Aspectos e Infraestructura</h2>
+        <div class="grid-cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Laboratorio">
+                <div class="card-content">
+                    <h3>Laboratorios de Ciencia</h3>
+                    <p>Equipamiento moderno para física, química y biología con prácticas experimentales guiadas.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Tecnología">
+                <div class="card-content">
+                    <h3>Aulas de Innovación Tecnológica</h3>
+                    <p>Conectividad de alta velocidad y herramientas de última generación para programación y robótica.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?auto=format&fit=crop&w=600&q=80" alt="Deportes">
+                <div class="card-content">
+                    <h3>Complejo Deportivo</h3>
+                    <p>Losas multifuncionales para básquet, fulbito y vóley fomentando la salud y la disciplina.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="teachers-section">
+        <h2>Nuestra Plana Docente - Secundaria</h2>
+        <p>Especialistas con amplia trayectoria en formación pre-universitaria.</p>
+        <div class="teacher-grid">
+            <div class="teacher-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>Prof. Carlos Mendoza</h3>
+                <p>Área de Matemáticas</p>
+            </div>
+            <div class="teacher-card">
+                <i class="fas fa-atom"></i>
+                <h3>Prof. Ana Torres</h3>
+                <p>Ciencias & Biología</p>
+            </div>
+            <div class="teacher-card">
+                <i class="fas fa-book-open"></i>
+                <h3>Prof. Javier Ruiz</h3>
+                <p>Comunicación & Letras</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
